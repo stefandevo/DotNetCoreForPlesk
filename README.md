@@ -24,9 +24,15 @@ docker push stefandevo/dotnetcoreplesk:1.0
 
 In your Plesk (Web Host Edition) admin panel go to the Docker screen. Next perform a searh for ```dotnetcoreplesk``` and choose the version you want ```1.0.``` and Install. 
 Give your container the name of your app you want to install, f.e. **HelloDotNetCore**.
-Next remove the check for **Automatic Port Mapping**. You will see that you now get the exposed port 5000; map this to an external port of your choice, f.e. **33000**.
-Then, set your **Volume mapping**. For Destination you should add ```/app```, for Source you should point to the location for the website that you have created. ```/var/www/vhosts/{{ YOUR SUBSCRIBER HOSTNAME }}/{{ YOUR DOMAIN }}```. Make sure that the content is cleared before doing this.
+Next remove the check for **Automatic Port Mapping**. You will see that you now get the exposed port 5000; map this to an external port of your choice, f.e. **34000**.
+Then, set your **Volume mapping**. For Destination you should add ```/published```, for Source you should point to the location for the website that you have created. ```/var/www/vhosts/{{ YOUR SUBSCRIBER HOSTNAME }}/{{ YOUR DOMAIN }}```. Make sure that the content is cleared before doing this.
 
-You can now start uploading your own published .net core project with FTP in the folder you specified above. Once you have done this, you can start the container and your uploaded files will be hosted.
+You can now start uploading your own published .net core project with FTP in the folder you specified above. 
+
+Next thing to do, is add your Docker container to the Website. You do this by choosing **Docker Proxy Rules** on the chosen website, **Add Rule**, next choose your container; normally the last added container is selected, and also the port mapping is correct (5000 -> 34000 for example).
+
+Once you have done this, you can start the container and your uploaded files will be hosted.
+
+**If you want to update the project, just copy over all files with FTP, and then **Restart** the container for make the changes to take effect.**
 
 
