@@ -27,7 +27,7 @@ Give your container the name of your app you want to install, f.e. **HelloDotNet
 Next remove the check for **Automatic Port Mapping**. You will see that you now get the exposed port 5000; map this to an external port of your choice, f.e. **34000**.
 Then, set your **Volume mapping**. For Destination you should add ```/published```, for Source you should point to the location for the website that you have created. ```/var/www/vhosts/{{ YOUR SUBSCRIBER HOSTNAME }}/{{ YOUR DOMAIN }}```. Make sure that the content is cleared before doing this.
 
-**The Assembly Name of your project should always be ```DotNetCoreApplication.dll``` **
+**Important!** The Assembly Name of your project should always be ```DotNetCoreApplication.dll``` 
 
 You can now start uploading your own published .net core project with FTP in the folder you specified above. 
 
